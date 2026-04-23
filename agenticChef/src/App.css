@@ -1,0 +1,230 @@
+/* Paleta de Colores ChefOS - Estética Gemini Ultra 2026 */
+:root {
+  --gemini-gradient: linear-gradient(135deg, #4285F4 0%, #9b72cb 50%, #D96570 100%);
+  --gemini-blue: #4285F4;
+  --gemini-pink: #D96570;
+  --bg-app: #0a0b10; 
+  --surface: rgba(26, 28, 36, 0.75);
+  --text-main: #ffffff;
+  --text-dim: #b0b3b8;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+.app-container { 
+  max-width: 950px; 
+  margin: 0 auto; 
+  padding: 2rem; 
+  min-height: 100vh;
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding-bottom: 2rem; 
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+.logo { font-size: 1.8rem; font-weight: 900; letter-spacing: -1.5px; }
+.logo span {
+  background: var(--gemini-gradient);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 4s linear infinite;
+}
+
+.badge {
+  background: rgba(255,255,255,0.05);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gemini-blue);
+}
+
+/* --- Títulos --- */
+.text-center { text-align: center; }
+.title { font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: -2px; }
+.subtitle { color: var(--text-dim); font-size: 1.2rem; margin-bottom: 3rem; }
+
+/* --- Grilla de Ingredientes --- */
+.ingredient-grid {
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px; 
+  margin-bottom: 4rem;
+}
+
+.ingredient-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  color: white;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  backdrop-filter: blur(8px);
+}
+
+.ingredient-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,0.4);
+}
+
+.ingredient-card.selected {
+  background: var(--gemini-gradient);
+  border-color: transparent;
+  box-shadow: 0 10px 25px rgba(155, 114, 203, 0.4);
+  transform: scale(1.05);
+}
+
+/* --- Botones Principales --- */
+.btn-primary {
+  padding: 20px 50px;
+  background: var(--gemini-gradient);
+  background-size: 200% auto;
+  color: white; 
+  border: none; 
+  border-radius: 16px;
+  font-size: 1.3rem; 
+  font-weight: 800; 
+  cursor: pointer;
+  transition: 0.5s;
+  box-shadow: 0 10px 30px rgba(155, 114, 203, 0.3);
+}
+
+.btn-primary:hover {
+  background-position: right center;
+  transform: scale(1.02);
+}
+
+.btn-secondary {
+  margin-top: 3rem;
+  padding: 18px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--gemini-blue);
+  color: var(--gemini-blue);
+  border-radius: 16px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--gemini-blue);
+  color: white;
+  box-shadow: 0 0 25px rgba(66, 133, 244, 0.5);
+}
+
+/* --- Tarjetas de Recetas --- */
+.recipe-grid { display: grid; gap: 25px; margin-top: 2rem; }
+
+.recipe-card-modern {
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  text-align: left;
+}
+
+.recipe-card-modern:hover {
+  border-color: var(--gemini-blue);
+  background: rgba(255,255,255,0.08);
+  transform: translateX(10px);
+}
+
+.recipe-meta { color: var(--gemini-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
+.recipe-card-modern h3 { font-size: 1.5rem; margin: 10px 0; }
+.difficulty-tag { display: inline-block; margin-top: 15px; font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 8px; }
+
+/* --- Vista de Detalle y Acciones --- */
+.detail-card {
+  background: var(--surface);
+  padding: 3.5rem;
+  border-radius: 32px;
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+}
+
+.detail-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 3rem;
+}
+
+.btn-back, .btn-secondary-mini {
+  flex: 1;
+  padding: 18px;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 2px solid transparent;
+}
+
+.btn-back {
+  background: rgba(217, 101, 112, 0.1);
+  border-color: var(--gemini-pink);
+  color: var(--gemini-pink);
+}
+
+.btn-back:hover {
+  background: var(--gemini-pink);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.btn-secondary-mini {
+  background: rgba(155, 114, 203, 0.1);
+  border-color: #9b72cb;
+  color: #9b72cb;
+}
+
+.btn-secondary-mini:hover {
+  background: #9b72cb;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.detail-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+.detail-tags { display: flex; gap: 20px; color: var(--text-dim); margin-bottom: 2.5rem; font-weight: 600; }
+
+.detail-content h3 { font-size: 1.6rem; border-left: 4px solid var(--gemini-blue); padding-left: 15px; margin-bottom: 1.5rem; }
+.detail-content p { line-height: 1.8; font-size: 1.15rem; color: #eee; }
+
+/* --- Loader --- */
+.skeleton-loader { padding: 4rem 0; text-align: center; }
+.spinner-chef {
+  width: 60px; 
+  height: 60px;
+  border: 5px solid rgba(255,255,255,0.1);
+  border-top: 5px solid var(--gemini-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 2rem;
+}
+
+/* --- Animaciones --- */
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes gradient-move { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+.fade-in { animation: fadeIn 0.6s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
