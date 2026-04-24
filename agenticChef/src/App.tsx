@@ -228,21 +228,27 @@ export default function App() {
     setView("results");
 
     // We ask the AI to provide a 'searchQuery' property with keywords for the image
-    const prompt = `Act as a Michelin-star Executive Chef. Generate 5 creative recipes using: ${selected.join(", ")}. 
-    Respond ONLY with a valid JSON array.
-    
-    Structure: {
-      "id": number, 
-      "name": "Creative Spanish Name", 
-      "description": "", 
-      "ingredientsList": "Ingredients\\n- ...", 
-      "instructions": "Preparation\\n1. ...", 
-      "difficulty": "", 
-      "time": "", 
-      "calories": "",
-      "searchQuery": "3-4 specific English keywords for a high-quality food photo of this exact dish"
-    }
-    Language: Spanish (except for searchQuery which must be English). No markdown.`;
+    const prompt = `Act as a Michelin-star Executive Chef. Your goal is to generate 5 highly detailed, creative, and professional recipes based ONLY on these available ingredients: ${selected.join(", ")}.
+
+OUTPUT FORMAT:
+You must respond ONLY with a valid JSON array. Each object in the array must follow this structure:
+{
+  "id": number,
+  "name": "Creative Gourmet Name",
+  "description": "A sophisticated one-sentence description of the dish.",
+  "ingredientsList": "Ingredients\\n- [Quantity] [Ingredient Name] (e.g., 100g NESTLÉ Dark Chocolate)\\n- [Quantity] [Ingredient Name]...",
+  "instructions": "Preparation\\n1. [Detailed Step]\\n2. [Detailed Step]...",
+  "difficulty": "Easy | Medium | Hard",
+  "time": "Duration (e.g., 45 min)",
+  "calories": "Estimated calories (e.g., 350 kcal)"
+}
+
+STRICT STYLE RULES:
+1. "ingredientsList" MUST include precise measurements and brand-name suggestions (like 'NESTLÉ', 'IDEAL', etc.) for a premium feel.
+2. "instructions" MUST be comprehensive, including oven temperatures (Celsius), specific techniques (e.g., 'au bain-marie', 'stiff peaks'), and resting times.
+3. Use '\\n' for line breaks within strings to ensure proper formatting in the UI.
+4. Language: The content (names, descriptions, instructions) must be written in SPANISH.
+5. Do not include markdown code blocks (like \`\`\`json). Only the raw JSON array.`;
 
     try {
       const model = genAI.getGenerativeModel({
