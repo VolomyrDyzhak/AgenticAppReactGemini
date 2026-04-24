@@ -29,5 +29,9 @@ Para ejecutar este proyecto localmente, sigue estos pasos:
 
 ### 1. Clonar el repositorio
 ```bash
-git clone [https://github.com/TuUsuario/AgenticChef.git](https://github.com/TuUsuario/AgenticChef.git)
+1 git clone [https://github.com/TuUsuario/AgenticChef.git](https://github.com/TuUsuario/AgenticChef.git)
 cd AgenticChef
+2 https://aistudio.google.com/ generar la clave api
+3 abrir en visual studio
+4 ejecurar en el directorio de la app pnpm install
+5 ejecutar pnpm run dev
